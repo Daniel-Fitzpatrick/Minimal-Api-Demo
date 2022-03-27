@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Basic", "Minimal.Api.Basic\Minimal.Api.Basic.csproj", "{AC2020D2-8569-49F4-AB6C-E8F3B324BF66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Structured", "Minimal.Api.Structured\Minimal.Api.Structured.csproj", "{6625776A-0229-4A69-ADD5-66E9E01A046E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC2020D2-8569-49F4-AB6C-E8F3B324BF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2020D2-8569-49F4-AB6C-E8F3B324BF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2020D2-8569-49F4-AB6C-E8F3B324BF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2020D2-8569-49F4-AB6C-E8F3B324BF66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6625776A-0229-4A69-ADD5-66E9E01A046E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6625776A-0229-4A69-ADD5-66E9E01A046E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6625776A-0229-4A69-ADD5-66E9E01A046E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6625776A-0229-4A69-ADD5-66E9E01A046E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

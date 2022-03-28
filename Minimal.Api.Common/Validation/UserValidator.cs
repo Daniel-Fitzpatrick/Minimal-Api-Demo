@@ -18,8 +18,6 @@ namespace Minimal.Api.Common.Validation
             RuleFor(u => u.YearsOfExperience)
                 .NotEmpty()
                 .GreaterThan(0);
-            RuleFor(u => u.Skills)
-                .NotEmpty();
             RuleFor(u => u.DateOfBirth)
                 .NotEmpty()
                 .MinimumAge(15);

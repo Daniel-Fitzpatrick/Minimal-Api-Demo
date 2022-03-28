@@ -21,7 +21,7 @@ namespace Minimal.Api.Common.Data
                         Firstname TEXT NOT NULL,
                         Lastname TEXT NOT NULL,
                         DateOfBirth TEXT NOT NULL,
-                        Skills TEXT NOT NULL,
+                        Skills TEXT NULL,
                         YearsOfExperience INTEGER NOT NULL
                     )"
                 );

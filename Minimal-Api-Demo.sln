@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Structured", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Common", "Minimal.Api.Common\Minimal.Api.Common.csproj", "{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Extras", "Minimal.Api.Extras\Minimal.Api.Extras.csproj", "{56E0F74F-859C-4002-940B-DC13D1F23CD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

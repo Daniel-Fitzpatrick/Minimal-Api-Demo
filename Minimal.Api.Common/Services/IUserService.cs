@@ -73,7 +73,7 @@ public class UserService : IUserService
 
         return await connection.QuerySingleOrDefaultAsync<User>(@"SELECT * 
                                                                       FROM Users
-                                                                      WHERE Id = @Id", new { Id = id });
+                                                                      WHERE Id = @Id", new { Id = id.ToString() });
 
     }
 
@@ -109,8 +109,9 @@ public class UserService : IUserService
                                                             WHERE Id = @IdToUpdate",
             new
             {
-                IdToUpdate = id,
+                IdToUpdate = id.ToString(),
                 user.Id,
+                user.Email,
                 user.FirstName,
                 user.LastName,
                 user.Skills,
@@ -126,7 +127,7 @@ public class UserService : IUserService
         using var connection = await _connectionFactory.CreateConnection();
 
         var result = await connection.ExecuteAsync(@"DELETE FROM Users
-                                                            WHERE Id = @Id", new { Id = id });
+                                                            WHERE Id = @Id", new { Id = id.ToString() });
 
         return result > 0;
     }

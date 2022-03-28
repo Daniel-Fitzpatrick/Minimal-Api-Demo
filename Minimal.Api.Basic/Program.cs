@@ -31,7 +31,7 @@ await databaseInitializer.InitializeAsync();
 app.MapGet("User/{id}", async (Guid id, IUserService userService) =>
 {
     var user = await userService.GetByIdAsync(id);
-    return user is null ? Results.Ok(user) : Results.NotFound();
+    return user is not null ? Results.Ok(user) : Results.NotFound();
 });
 
 app.MapGet("User", async (string? skill, IUserService userService) =>
@@ -57,7 +57,7 @@ app.MapPost("User", async (User user, IUserService userService, IValidator<User>
         return Results.BadRequest(new Dictionary<string, string[]> { { nameof(User.Email), new[] { "User with email address already exists" } } });
     }
 
-    if (await userService.CreateAsync(user))
+     if (await userService.CreateAsync(user))
     {
         return Results.Created($"User/{user.Id}", user);
     }

@@ -34,6 +34,7 @@ await databaseInitializer.InitializeAsync();
 //named endpoints
 //swagger extras
 //Result extensions
+//Other http verbs
 
 
 app.MapGet("User/{id}", async (Guid id, IUserService userService) => Results.Extensions.OkayOrNotFound(await userService.GetByIdAsync(id)))
@@ -55,7 +56,7 @@ app.MapGet("User", async (string? skill, IUserService userService) =>
 
 app.MapPost("User", async (User user, IUserService userService, IValidator<User> validator) =>
 {
-    var validationResult = validator.Validate(user);
+    var validationResult = await validator.ValidateAsync(user);
     if (validationResult.IsValid)
     {
         return Results.Extensions.ValidationBadRequest(validationResult);
@@ -80,7 +81,7 @@ app.MapPost("User", async (User user, IUserService userService, IValidator<User>
 app.MapPost("User1", async (User user, IUserService userService, IValidator<User> validator,
     LinkGenerator linkGenerator, HttpContext context) =>
 {
-    var validationResult = validator.Validate(user);
+    var validationResult = await validator.ValidateAsync(user);
     if (validationResult.IsValid)
     {
         return Results.Extensions.ValidationBadRequest(validationResult);
@@ -105,7 +106,7 @@ app.MapPost("User1", async (User user, IUserService userService, IValidator<User
 
 app.MapPut("User/{id}", async (Guid id, User user, IUserService userService, IValidator<User> validator) =>
 {
-    var validationResult = validator.Validate(user);
+    var validationResult = await validator.ValidateAsync(user);
 
     if (validationResult.IsValid)
     {
@@ -151,5 +152,7 @@ app.MapDelete("User/{id}", async (Guid id, IUserService userService) =>
     .Produces<User>()
     .Produces(StatusCodes.Status404NotFound)
     .ProducesProblem(StatusCodes.Status500InternalServerError);
+
+app.MapMethods("User", new[] { "PATCH", "OPTIONS", "HEAD" }, (HttpContext context) => $"this is a {context.Request.Method} request");
 
 app.Run();

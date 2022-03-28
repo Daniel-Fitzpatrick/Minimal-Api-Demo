@@ -46,7 +46,7 @@ app.MapGet("User", async (string? skill, IUserService userService) =>
 
 app.MapPost("User", async (User user, IUserService userService, IValidator<User> validator) =>
 {
-    var validationResult = validator.Validate(user);
+    var validationResult = await validator.ValidateAsync(user);
     if (validationResult.IsValid)
     {
         return Results.BadRequest(validationResult.ToValidationDictionary());
@@ -57,7 +57,7 @@ app.MapPost("User", async (User user, IUserService userService, IValidator<User>
         return Results.BadRequest(new Dictionary<string, string[]> { { nameof(User.Email), new[] { "User with email address already exists" } } });
     }
 
-     if (await userService.CreateAsync(user))
+    if (await userService.CreateAsync(user))
     {
         return Results.Created($"User/{user.Id}", user);
     }
@@ -67,7 +67,7 @@ app.MapPost("User", async (User user, IUserService userService, IValidator<User>
 
 app.MapPut("User/{id}", async (Guid id, User user, IUserService userService, IValidator<User> validator) =>
 {
-    var validationResult = validator.Validate(user);
+    var validationResult = await validator.ValidateAsync(user);
 
     if (validationResult.IsValid)
     {

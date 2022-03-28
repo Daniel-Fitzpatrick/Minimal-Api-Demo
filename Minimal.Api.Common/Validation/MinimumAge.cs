@@ -15,7 +15,7 @@ public class MinimumAge<T, TDate> : PropertyValidator<T, TDate>
     public override bool IsValid(ValidationContext<T> context, TDate value)
     {
         context.MessageFormatter.AppendArgument("MinimumAge", _minAge);
-        return value is DateTime date && date.AddYears(_minAge) >= DateTime.Now;
+        return value is DateTime date && date.AddYears(_minAge) < DateTime.Now;
     }
 
     public override string Name => "MinimumAge";

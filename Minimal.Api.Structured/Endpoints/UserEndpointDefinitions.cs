@@ -10,7 +10,7 @@ namespace Minimal.Api.Structured.Endpoints
         public static async Task<IResult> CreateUser(User user, IUserService userService, IValidator<User> validator)
         {
             var validationResult = await validator.ValidateAsync(user);
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
                 return Results.Extensions.ValidationBadRequest(validationResult);
             }
@@ -32,7 +32,7 @@ namespace Minimal.Api.Structured.Endpoints
         {
             var validationResult = await validator.ValidateAsync(user);
 
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
                 return Results.Extensions.ValidationBadRequest(validationResult);
             }

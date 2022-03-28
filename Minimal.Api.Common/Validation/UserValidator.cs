@@ -8,8 +8,7 @@ namespace Minimal.Api.Common.Validation
         public UserValidator()
         {
             RuleFor(u => u.Email)
-                .EmailAddress()
-                .WithMessage("Value must be a valid email address");
+                .EmailAddress();
 
             RuleFor(u => u.FirstName)
                 .NotEmpty();

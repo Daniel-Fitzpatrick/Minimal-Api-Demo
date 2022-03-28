@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Common", "Minim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Extras", "Minimal.Api.Extras\Minimal.Api.Extras.csproj", "{56E0F74F-859C-4002-940B-DC13D1F23CD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Tests", "Minimal.Api.Tests\Minimal.Api.Tests.csproj", "{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Controllers", "Minimal.Api.Controllers\Minimal.Api.Controllers.csproj", "{8BD19667-0D0B-4CDB-996A-4B220A44DB72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56E0F74F-859C-4002-940B-DC13D1F23CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

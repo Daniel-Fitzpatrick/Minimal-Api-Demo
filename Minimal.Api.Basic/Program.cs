@@ -36,25 +36,20 @@ app.MapGet("User/{id}", async (Guid id, IUserService userService) =>
 
 app.MapGet("User", async (string? skill, IUserService userService) =>
 {
-    if (skill is null)
-    {
-        return Results.Ok(await userService.GetAllAsync());
-    }
-
-    return Results.Ok(await userService.SearchBySkill(skill));
+    return skill is null ? Results.Ok(await userService.GetAllAsync()) : Results.Ok(await userService.SearchBySkill(skill));
 });
 
 app.MapPost("User", async (User user, IUserService userService, IValidator<User> validator) =>
 {
     var validationResult = await validator.ValidateAsync(user);
-    if (validationResult.IsValid)
+    if (!validationResult.IsValid)
     {
-        return Results.BadRequest(validationResult.ToValidationDictionary());
+        return Results.ValidationProblem(validationResult.ToValidationDictionary());
     }
 
     if (await userService.GetByEmailAsync(user.Email) is not null)
     {
-        return Results.BadRequest(new Dictionary<string, string[]> { { nameof(User.Email), new[] { "User with email address already exists" } } });
+        return Results.ValidationProblem(new Dictionary<string, string[]> { { nameof(User.Email), new[] { "User with email address already exists" } } });
     }
 
     if (await userService.CreateAsync(user))
@@ -69,9 +64,9 @@ app.MapPut("User/{id}", async (Guid id, User user, IUserService userService, IVa
 {
     var validationResult = await validator.ValidateAsync(user);
 
-    if (validationResult.IsValid)
+    if (!validationResult.IsValid)
     {
-        return Results.BadRequest(validationResult.ToValidationDictionary());
+        return Results.ValidationProblem(validationResult.ToValidationDictionary());
     }
 
     if (await userService.GetByIdAsync(id) is null)

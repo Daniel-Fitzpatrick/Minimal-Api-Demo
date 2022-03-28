@@ -1,4 +1,3 @@
-using System.Linq;
 using FluentValidation;
 using FluentValidation.Results;
 
@@ -12,12 +11,12 @@ public static class FluentValidationExtensions
             .GroupBy(x => x.PropertyName)
             .ToDictionary(
                 x => x.Key,
-                x => Enumerable.ToArray<string>(x.Select(y => y.ErrorMessage))
+                x => x.Select(y => y.ErrorMessage).ToArray()
             );
     }
 
-    public static IRuleBuilderOptions<T, TElement> MinimumAge<T, TElement>(this IRuleBuilder<T, TElement> ruleBuilder, int minimumAge)
+    public static void MinimumAge<T, TElement>(this IRuleBuilder<T, TElement> ruleBuilder, int minimumAge)
     {
-        return ruleBuilder.SetValidator(new MinimumAge<T, TElement>(minimumAge));
+        ruleBuilder.SetValidator(new MinimumAge<T, TElement>(minimumAge));
     }
 }

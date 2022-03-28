@@ -57,7 +57,7 @@ app.MapGet("User", async (string? skill, IUserService userService) =>
 app.MapPost("User", async (User user, IUserService userService, IValidator<User> validator) =>
 {
     var validationResult = await validator.ValidateAsync(user);
-    if (validationResult.IsValid)
+    if (!validationResult.IsValid)
     {
         return Results.Extensions.ValidationBadRequest(validationResult);
     }
@@ -82,7 +82,7 @@ app.MapPost("User1", async (User user, IUserService userService, IValidator<User
     LinkGenerator linkGenerator, HttpContext context) =>
 {
     var validationResult = await validator.ValidateAsync(user);
-    if (validationResult.IsValid)
+    if (!validationResult.IsValid)
     {
         return Results.Extensions.ValidationBadRequest(validationResult);
     }
@@ -108,7 +108,7 @@ app.MapPut("User/{id}", async (Guid id, User user, IUserService userService, IVa
 {
     var validationResult = await validator.ValidateAsync(user);
 
-    if (validationResult.IsValid)
+    if (!validationResult.IsValid)
     {
         return Results.Extensions.ValidationBadRequest(validationResult);
     }

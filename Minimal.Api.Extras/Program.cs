@@ -1,16 +1,17 @@
 using FluentValidation;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Minimal.Api.Common;
 using Minimal.Api.Common.Data;
 using Minimal.Api.Common.Model;
 using Minimal.Api.Common.Result;
 using Minimal.Api.Common.Services;
-using Minimal.Api.Common.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+});
 
 builder.Services.AddSingleton<DatabaseInitializer>();
 
@@ -41,7 +42,8 @@ app.MapGet("User/{id}", async (Guid id, IUserService userService) => Results.Ext
     .WithName("GetUserById")
     .WithTags("User")
     .Produces<User>()
-    .Produces(StatusCodes.Status404NotFound);
+    .Produces(StatusCodes.Status404NotFound)
+    .WithDescription("Get User by Id");
 
 app.MapGet("User", async (string? skill, IUserService userService) =>
 {
@@ -52,7 +54,8 @@ app.MapGet("User", async (string? skill, IUserService userService) =>
 
     return Results.Ok(await userService.SearchBySkill(skill));
 }).WithTags("User")
-    .Produces<IEnumerable<User>>();
+    .Produces<IEnumerable<User>>()
+    .WithDescription("Gets all users or ones matching a skill");
 
 app.MapPost("User", async (User user, IUserService userService, IValidator<User> validator) =>
 {
@@ -76,7 +79,8 @@ app.MapPost("User", async (User user, IUserService userService, IValidator<User>
 }).WithTags("User")
     .Produces<User>()
     .Produces<Dictionary<string, string[]>>(StatusCodes.Status400BadRequest)
-    .ProducesProblem(StatusCodes.Status500InternalServerError);
+    .ProducesProblem(StatusCodes.Status500InternalServerError)
+    .WithDescription("Creates a new User");
 
 app.MapPost("User1", async (User user, IUserService userService, IValidator<User> validator,
     LinkGenerator linkGenerator, HttpContext context) =>
@@ -102,7 +106,8 @@ app.MapPost("User1", async (User user, IUserService userService, IValidator<User
 }).WithTags("User")
     .Produces<User>()
     .Produces<Dictionary<string, string[]>>(StatusCodes.Status400BadRequest)
-    .ProducesProblem(StatusCodes.Status500InternalServerError);
+    .ProducesProblem(StatusCodes.Status500InternalServerError)
+    .WithDescription("Creates a new User");
 
 app.MapPut("User/{id}", async (Guid id, User user, IUserService userService, IValidator<User> validator) =>
 {
@@ -133,7 +138,8 @@ app.MapPut("User/{id}", async (Guid id, User user, IUserService userService, IVa
     .Produces<User>()
     .Produces<Dictionary<string, string[]>>(StatusCodes.Status400BadRequest)
     .Produces(StatusCodes.Status404NotFound)
-    .ProducesProblem(StatusCodes.Status500InternalServerError);
+    .ProducesProblem(StatusCodes.Status500InternalServerError)
+    .WithDescription("Updates a User");
 
 app.MapDelete("User/{id}", async (Guid id, IUserService userService) =>
 {
@@ -151,7 +157,8 @@ app.MapDelete("User/{id}", async (Guid id, IUserService userService) =>
 }).WithTags("User")
     .Produces<User>()
     .Produces(StatusCodes.Status404NotFound)
-    .ProducesProblem(StatusCodes.Status500InternalServerError);
+    .ProducesProblem(StatusCodes.Status500InternalServerError)
+    .WithDescription("Deletes a User");
 
 app.MapMethods("User", new[] { "PATCH", "OPTIONS", "HEAD" }, (HttpContext context) => $"this is a {context.Request.Method} request");
 

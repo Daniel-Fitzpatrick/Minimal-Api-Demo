@@ -17,26 +17,31 @@ namespace Minimal.Api.Structured.Endpoints
                 .WithName("GetUserById")
                 .WithTags("User")
                 .Produces<User>()
-                .Produces(StatusCodes.Status404NotFound);
+                .Produces(StatusCodes.Status404NotFound)
+                .WithDescription("Get User by Id");                
 
             app.MapGet("User", GetUsers).WithTags("User")
-                .Produces<IEnumerable<User>>();
+                .Produces<IEnumerable<User>>()
+                .WithDescription("Gets all users or ones matching a skill");
 
             app.MapPost("User", UserEndpointDefinitions.CreateUser).WithTags("User")
                 .Produces<User>()
                 .Produces<Dictionary<string, string[]>>(StatusCodes.Status400BadRequest)
-                .ProducesProblem(StatusCodes.Status500InternalServerError);
+                .ProducesProblem(StatusCodes.Status500InternalServerError)
+                .WithDescription("Creates a new User");
 
             app.MapPut("User/{id}", UserEndpointDefinitions.UpdateUser).WithTags("User")
-                .Produces<User>()
+                .Produces(StatusCodes.Status200OK)
                 .Produces<Dictionary<string, string[]>>(StatusCodes.Status400BadRequest)
                 .Produces(StatusCodes.Status404NotFound)
-                .ProducesProblem(StatusCodes.Status500InternalServerError);
+                .ProducesProblem(StatusCodes.Status500InternalServerError)
+                .WithDescription("Updates a User");
 
             app.MapDelete("User/{id}", DeleteUserEndpointDefinition.DeleteUser).WithTags("User")
-                .Produces<User>()
+                .Produces(StatusCodes.Status200OK)
                 .Produces(StatusCodes.Status404NotFound)
-                .ProducesProblem(StatusCodes.Status500InternalServerError);
+                .ProducesProblem(StatusCodes.Status500InternalServerError)
+                .WithDescription("Deletes a User");
         }
 
 

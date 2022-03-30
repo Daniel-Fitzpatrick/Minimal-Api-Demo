@@ -16,10 +16,18 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Controllers", "Minimal.Api.Controllers\Minimal.Api.Controllers.csproj", "{8BD19667-0D0B-4CDB-996A-4B220A44DB72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA8F9C25-E03A-428B-B987-43D029832BE5}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F73CFD10-8DFD-44DF-91BD-B1914F4DC942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.StressTest", "Minimal.Api.StressTest\Minimal.Api.StressTest.csproj", "{1756A457-6FA0-4E2B-A823-286373725F35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.StressTest", "Minimal.Api.StressTest\Minimal.Api.StressTest.csproj", "{1756A457-6FA0-4E2B-A823-286373725F35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A47A302-F423-4E37-8FCD-C029E385EB01}"
+	ProjectSection(SolutionItems) = preProject
+		DockerFile = DockerFile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

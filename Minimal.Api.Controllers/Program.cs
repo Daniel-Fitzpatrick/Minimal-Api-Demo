@@ -62,6 +62,7 @@ app.MapGet("User1", async (string? skill, IUserService userService) =>
         return Results.Ok(await userService.SearchBySkill(skill));
     }).WithTags("User")
     .Produces<IEnumerable<User>>()
-    .WithDescription("Gets all users or ones matching a skill");
+    .WithDescription("Gets all users or ones matching a skill")
+    .ExcludeFromDescription();
 
 app.Run();

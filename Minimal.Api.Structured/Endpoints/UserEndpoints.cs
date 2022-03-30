@@ -45,10 +45,10 @@ namespace Minimal.Api.Structured.Endpoints
         }
 
 
-        private static async Task<IResult> GetUserById(Guid id, IUserService userService) =>
+        internal static async Task<IResult> GetUserById(Guid id, IUserService userService) =>
             Results.Extensions.OkayOrNotFound(await userService.GetByIdAsync(id));
 
-        private static async Task<IResult> GetUsers(string? skill, IUserService userService)
+        internal static async Task<IResult> GetUsers(string? skill, IUserService userService)
         {
             return skill is null ? Results.Ok(await userService.GetAllAsync()) : Results.Ok(await userService.SearchBySkill(skill));
         }

@@ -22,13 +22,13 @@ using Xunit;
 
 namespace Minimal.Api.Tests
 {
-    public class UserEndpointsTests : IClassFixture<WebApplicationFactory<IApiStructuredMarker>>
+    public class UserEndpointsFunctionalTests : IClassFixture<WebApplicationFactory<IApiStructuredMarker>>
     {
         private readonly IUserService _userService;
         private readonly IValidator<User> _validator;
         private readonly WebApplicationFactory<IApiStructuredMarker> _factory;
 
-        public UserEndpointsTests(WebApplicationFactory<IApiStructuredMarker> factory)
+        public UserEndpointsFunctionalTests(WebApplicationFactory<IApiStructuredMarker> factory)
         {
             _userService = Substitute.For<IUserService>();
             _validator = Substitute.For<IValidator<User>>();

@@ -2,6 +2,8 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Minimal.Api.Common;
 using Minimal.Api.Common.Data;
+using Minimal.Api.Common.Model;
+using Minimal.Api.Common.Result;
 using Minimal.Api.Common.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -49,5 +51,17 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("User1", async (string? skill, IUserService userService) =>
+    {
+        if (skill is null)
+        {
+            return Results.Ok(await userService.GetAllAsync());
+        }
+
+        return Results.Ok(await userService.SearchBySkill(skill));
+    }).WithTags("User")
+    .Produces<IEnumerable<User>>()
+    .WithDescription("Gets all users or ones matching a skill");
 
 app.Run();

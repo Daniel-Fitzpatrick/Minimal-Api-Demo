@@ -7,13 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Basic", "Minima
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Structured", "Minimal.Api.Structured\Minimal.Api.Structured.csproj", "{6625776A-0229-4A69-ADD5-66E9E01A046E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Common", "Minimal.Api.Common\Minimal.Api.Common.csproj", "{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Common", "Minimal.Api.Common\Minimal.Api.Common.csproj", "{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Extras", "Minimal.Api.Extras\Minimal.Api.Extras.csproj", "{56E0F74F-859C-4002-940B-DC13D1F23CD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Extras", "Minimal.Api.Extras\Minimal.Api.Extras.csproj", "{56E0F74F-859C-4002-940B-DC13D1F23CD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Tests", "Minimal.Api.Tests\Minimal.Api.Tests.csproj", "{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Tests", "Minimal.Api.Tests\Minimal.Api.Tests.csproj", "{261E1B0A-EF20-4202-9C04-E1C2D23E24FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.Controllers", "Minimal.Api.Controllers\Minimal.Api.Controllers.csproj", "{8BD19667-0D0B-4CDB-996A-4B220A44DB72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimal.Api.Controllers", "Minimal.Api.Controllers\Minimal.Api.Controllers.csproj", "{8BD19667-0D0B-4CDB-996A-4B220A44DB72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA8F9C25-E03A-428B-B987-43D029832BE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F73CFD10-8DFD-44DF-91BD-B1914F4DC942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.Api.StressTest", "Minimal.Api.StressTest\Minimal.Api.StressTest.csproj", "{1756A457-6FA0-4E2B-A823-286373725F35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +51,22 @@ Global
 		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BD19667-0D0B-4CDB-996A-4B220A44DB72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1756A457-6FA0-4E2B-A823-286373725F35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1756A457-6FA0-4E2B-A823-286373725F35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1756A457-6FA0-4E2B-A823-286373725F35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1756A457-6FA0-4E2B-A823-286373725F35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC2020D2-8569-49F4-AB6C-E8F3B324BF66} = {BA8F9C25-E03A-428B-B987-43D029832BE5}
+		{6625776A-0229-4A69-ADD5-66E9E01A046E} = {BA8F9C25-E03A-428B-B987-43D029832BE5}
+		{B417FD94-C57F-4D2D-9AA7-7F14F18A2CD8} = {BA8F9C25-E03A-428B-B987-43D029832BE5}
+		{56E0F74F-859C-4002-940B-DC13D1F23CD0} = {BA8F9C25-E03A-428B-B987-43D029832BE5}
+		{261E1B0A-EF20-4202-9C04-E1C2D23E24FF} = {F73CFD10-8DFD-44DF-91BD-B1914F4DC942}
+		{8BD19667-0D0B-4CDB-996A-4B220A44DB72} = {BA8F9C25-E03A-428B-B987-43D029832BE5}
+		{1756A457-6FA0-4E2B-A823-286373725F35} = {F73CFD10-8DFD-44DF-91BD-B1914F4DC942}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED63425B-FD27-4FA8-83CB-5201E74756D9}

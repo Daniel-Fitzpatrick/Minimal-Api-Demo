@@ -27,6 +27,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A47A302-F423-4E37-8FCD-C029E385EB01}"
 	ProjectSection(SolutionItems) = preProject
 		DockerFile = DockerFile
+		Minimal-Api-Demo.sln.DotSettings.user = Minimal-Api-Demo.sln.DotSettings.user
 	EndProjectSection
 EndProject
 Global

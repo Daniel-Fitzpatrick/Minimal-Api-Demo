@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "bb1f7e39-a4c9-4134-9333-271fe619dace",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Smith\",\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"skills\": \"Common,Ordinary,Unspectacular\",\r\n  \"yearsOfExperience\": 2,\r\n  \"dateOfBirth\": \"2005-03-28T00:00:00.000Z\",\r\n  \"email\": \"John.Smith@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User Fail Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"\",\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"skills\": \"Common,Ordinary,Unspectacular\",\r\n  \"yearsOfExperience\": 2,\r\n  \"dateOfBirth\": \"2010-03-28T00:00:00.000Z\",\r\n  \"email\": \"John.Smithmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Smith\",\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"skills\": \"Common,Ordinary,Unspectacular\",\r\n  \"yearsOfExperience\": 2,\r\n  \"dateOfBirth\": \"2005-03-28T00:00:00.000Z\",\r\n  \"email\": \"John.Smith@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User1",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Smith\",\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"skills\": \"Common,Ordinary,Unspectacular\",\r\n  \"yearsOfExperience\": 3,\r\n  \"dateOfBirth\": \"2005-03-28T00:00:00.000Z\",\r\n  \"email\": \"John.Smith@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User",
+								"3fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users by Skill",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User?skill=Common",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User"
+							],
+							"query": [
+								{
+									"key": "skill",
+									"value": "Common"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User",
+								"3fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{UserMinimalApiUrl}}/User/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"host": [
+								"{{UserMinimalApiUrl}}"
+							],
+							"path": [
+								"User",
+								"3fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Controller Setup Stress Test Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var url = pm.collectionVariables.get(\"ControllerTestApiUrl\")+\"/User\";\r",
+							"\r",
+							"var user1 = JSON.stringify(\r",
+							"{\r",
+							"    \"FirstName\": \"Load\",\r",
+							"    \"LastName\": \"Test 1\",\r",
+							"    \"Email\": \"loadtest1@mail.com\",\r",
+							"    \"DateOfBirth\": \"2000-01-31\",\r",
+							"    \"YearsOfExperience\": 1,\r",
+							"    \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa7\",\r",
+							"    \"Skills\": \"dopey,sleepy\"\r",
+							"});\r",
+							"\r",
+							"\r",
+							"console.log(url);\r",
+							"const options1 = {\r",
+							"    url: url,\r",
+							"    method: 'POST',\r",
+							"    header: { 'content-type': 'application/json' },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: user1\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"//using pm to send a request inside a function does not work, hence I am passing in PM to the parameter postman\r",
+							"//https://github.com/postmanlabs/postman-app-support/issues/4404#issuecomment-834390406\r",
+							"pm.sendRequest(options1, function (error, response) {            \r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"var user2 = JSON.stringify(\r",
+							"{\r",
+							"    \"FirstName\": \"Load\",\r",
+							"    \"LastName\": \"Test 2\",\r",
+							"    \"Email\": \"loadtest2@mail.com\",\r",
+							"    \"DateOfBirth\": \"2001-01-31\",\r",
+							"    \"YearsOfExperience\": 2,\r",
+							"    \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa8\",\r",
+							"    \"Skills\": \"bashful,grumpy\"\r",
+							"});\r",
+							"\r",
+							"const options2 = {\r",
+							"    url: url,\r",
+							"    method: 'POST',\r",
+							"    header: { 'content-type': 'application/json' },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: user2\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"\r",
+							"pm.sendRequest(options2, function (error, response) {            \r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var user3 = JSON.stringify(\r",
+							"{\r",
+							"    \"FirstName\": \"Load\",\r",
+							"    \"LastName\": \"Test 3\",\r",
+							"    \"Email\": \"loadtest3@mail.com\",\r",
+							"    \"DateOfBirth\": \"1992-01-31\",\r",
+							"    \"YearsOfExperience\": 10,\r",
+							"    \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa9\",\r",
+							"    \"Skills\": \"sneezy,happy\"\r",
+							"});\r",
+							"\r",
+							"const options3 = {\r",
+							"    url: url,\r",
+							"    method: 'POST',\r",
+							"    header: { 'content-type': 'application/json' },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: user3\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(options3, function (error, response) {            \r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ControllerTestApiUrl}}/User",
+					"host": [
+						"{{ControllerTestApiUrl}}"
+					],
+					"path": [
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Minimal Api Setup Stress Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var url = pm.collectionVariables.get(\"UserMinimalApiUrl\")+\"/User\";\r",
+							"\r",
+							"var user1 = JSON.stringify(\r",
+							"{\r",
+							"    \"FirstName\": \"Load\",\r",
+							"    \"LastName\": \"Test 1\",\r",
+							"    \"Email\": \"loadtest1@mail.com\",\r",
+							"    \"DateOfBirth\": \"2000-01-31\",\r",
+							"    \"YearsOfExperience\": 1,\r",
+							"    \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa7\",\r",
+							"    \"Skills\": \"dopey,sleepy\"\r",
+							"});\r",
+							"\r",
+							"\r",
+							"console.log(url);\r",
+							"const options1 = {\r",
+							"    url: url,\r",
+							"    method: 'POST',\r",
+							"    header: { 'content-type': 'application/json' },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: user1\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"//using pm to send a request inside a function does not work, hence I am passing in PM to the parameter postman\r",
+							"//https://github.com/postmanlabs/postman-app-support/issues/4404#issuecomment-834390406\r",
+							"pm.sendRequest(options1, function (error, response) {            \r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"var user2 = JSON.stringify(\r",
+							"{\r",
+							"    \"FirstName\": \"Load\",\r",
+							"    \"LastName\": \"Test 2\",\r",
+							"    \"Email\": \"loadtest2@mail.com\",\r",
+							"    \"DateOfBirth\": \"2001-01-31\",\r",
+							"    \"YearsOfExperience\": 2,\r",
+							"    \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa8\",\r",
+							"    \"Skills\": \"bashful,grumpy\"\r",
+							"});\r",
+							"\r",
+							"const options2 = {\r",
+							"    url: url,\r",
+							"    method: 'POST',\r",
+							"    header: { 'content-type': 'application/json' },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: user2\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"\r",
+							"pm.sendRequest(options2, function (error, response) {            \r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var user3 = JSON.stringify(\r",
+							"{\r",
+							"    \"FirstName\": \"Load\",\r",
+							"    \"LastName\": \"Test 3\",\r",
+							"    \"Email\": \"loadtest3@mail.com\",\r",
+							"    \"DateOfBirth\": \"1992-01-31\",\r",
+							"    \"YearsOfExperience\": 10,\r",
+							"    \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa9\",\r",
+							"    \"Skills\": \"sneezy,happy\"\r",
+							"});\r",
+							"\r",
+							"const options3 = {\r",
+							"    url: url,\r",
+							"    method: 'POST',\r",
+							"    header: { 'content-type': 'application/json' },\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: user3\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(options3, function (error, response) {            \r",
+							"    if (error) {\r",
+							"        console.log(error);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{UserMinimalApiUrl}}/User",
+					"host": [
+						"{{UserMinimalApiUrl}}"
+					],
+					"path": [
+						"User"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

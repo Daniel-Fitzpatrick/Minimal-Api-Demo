@@ -12,11 +12,14 @@ namespace Minimal.Api.Common.Validation
 
             RuleFor(u => u.FirstName)
                 .NotEmpty();
+
             RuleFor(u => u.LastName)
                 .NotEmpty();
+
             RuleFor(u => u.YearsOfExperience)
                 .NotEmpty()
                 .GreaterThan(0);
+
             RuleFor(u => u.DateOfBirth)
                 .NotEmpty()
                 .MinimumAge(15);

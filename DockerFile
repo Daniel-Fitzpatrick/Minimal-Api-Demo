@@ -13,7 +13,7 @@
 # COPY ["Minimal.Api.Structured/Minimal.Api.Structured.csproj", "Minimal.Api.Structured/"]
 # COPY ["Minimal.Api.Common/Minimal.Api.Common.csproj", "Minimal.Api.Common/"]
 
-# RUN dotnet restore "Minimal.Api.Structured/Minimal.Api.Structured.csproj" --verbosity diag
+# RUN dotnet restore "Minimal.Api.Structured/Minimal.Api.Structured.csproj"
 # COPY . .
 # WORKDIR "/Minimal.Api.Structured"
 # RUN dotnet build "Minimal.Api.Structured.csproj" -c Release -o /app/build

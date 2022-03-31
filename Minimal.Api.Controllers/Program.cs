@@ -37,11 +37,9 @@ builder.Services.AddScoped<IUserService, UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 var databaseInitializer = app.Services.GetRequiredService<DatabaseInitializer>();
 await databaseInitializer.InitializeAsync();

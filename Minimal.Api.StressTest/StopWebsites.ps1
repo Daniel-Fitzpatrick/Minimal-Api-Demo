@@ -1,0 +1,6 @@
+docker stop "minimal-api-demo"
+docker rm "minimal-api-demo"  
+docker stop "minimal-api-demo-controller"
+docker rm "minimal-api-demo-controller"
+docker stop "minimal-api-demo-mix"
+docker rm "minimal-api-demo-mix"

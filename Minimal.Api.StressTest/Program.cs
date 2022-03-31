@@ -9,7 +9,7 @@ var httpFactory = HttpClientFactory.Create();
 var minimalApiStep = Step.Create("Call Get All Users", httpFactory, async context =>
 {
     var request =
-        Http.CreateRequest("GET", "https://localhost:7196/User")
+        Http.CreateRequest("GET", "http://localhost:5020/User")
             .WithCheck(response =>
                 Task.FromResult(response.IsSuccessStatusCode
                     ? Response.Ok()
@@ -23,7 +23,7 @@ var minimalApiStep = Step.Create("Call Get All Users", httpFactory, async contex
 var controllerApiStep = Step.Create("Call Get All Users", httpFactory, async context =>
 {
     var request =
-        Http.CreateRequest("GET", "https://localhost:7188/User")
+        Http.CreateRequest("GET", "http://localhost:5021/User")
             .WithCheck(response =>
                 Task.FromResult(response.IsSuccessStatusCode
                     ? Response.Ok()
@@ -37,7 +37,7 @@ var controllerApiStep = Step.Create("Call Get All Users", httpFactory, async con
 var minimalApiWithControllerApiStep = Step.Create("Call Get All Users", httpFactory, async context =>
 {
     var request =
-        Http.CreateRequest("GET", "https://localhost:7188/User1")
+        Http.CreateRequest("GET", "http://localhost:5022/User1")
             .WithCheck(response =>
                 Task.FromResult(response.IsSuccessStatusCode
                     ? Response.Ok()
@@ -63,17 +63,7 @@ var minimalApiWithControllerScenario = ScenarioBuilder
     .WithWarmUpDuration(TimeSpan.FromSeconds(10))
     .WithLoadSimulations(Simulation.KeepConstant(16, TimeSpan.FromSeconds(60)));
 
-//NBomberRunner
-//    .RegisterScenarios(controllerScenario)
-//    .WithTestName("nbomber-controller-api")
-//    .Run();
-
-//NBomberRunner
-//    .RegisterScenarios(minimalApiScenario)
-//    .WithTestName("nbomber-minimal-api")
-//    .Run();
-
 NBomberRunner
-    .RegisterScenarios(minimalApiWithControllerScenario)
-    .WithTestName("nbomber-minimal-api-controller-api")
+    .RegisterScenarios(minimalApiScenario, controllerScenario, minimalApiWithControllerScenario)
+    .WithTestName("nbomber-minimal-api-demo")
     .Run();

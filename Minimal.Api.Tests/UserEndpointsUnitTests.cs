@@ -22,7 +22,7 @@ namespace Minimal.Api.Tests
         public async Task GetUserById_ReturnsNotFound_WhenNoUserExistsWithId()
         {
             // Arrange.
-            _userService.GetByIdAsync(Arg.Any<Guid>()).Returns((User)null);
+            _userService.GetByIdAsync(Arg.Any<Guid>()).Returns((User?)null);
 
             // Act.
             IResult result = await UserEndpoints.GetUserById(Guid.NewGuid(), _userService);

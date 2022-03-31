@@ -73,7 +73,7 @@ namespace Minimal.Api.Tests
         public async Task GetById_ReturnsNotFound_WhenUserDoesNotExists()
         {
             // Arrange.
-            _userService.GetByIdAsync(Arg.Any<Guid>()).Returns((User)null);
+            _userService.GetByIdAsync(Arg.Any<Guid>()).Returns((User?)null);
 
             var client = _factory.CreateClient();
 
@@ -147,7 +147,7 @@ namespace Minimal.Api.Tests
             // Arrange.
             _validator.ValidateAsync(Arg.Any<User>()).Returns(new ValidationResult());
 
-            _userService.GetByEmailAsync(Arg.Any<string>()).Returns((User)null);
+            _userService.GetByEmailAsync(Arg.Any<string>()).Returns((User?)null);
 
             _userService.CreateAsync(Arg.Any<User>()).Returns(false);
 
@@ -184,7 +184,7 @@ namespace Minimal.Api.Tests
 
             _validator.ValidateAsync(Arg.Any<User>()).Returns(new ValidationResult());
 
-            _userService.GetByEmailAsync(Arg.Any<string>()).Returns((User)null);
+            _userService.GetByEmailAsync(Arg.Any<string>()).Returns((User?)null);
 
             _userService.CreateAsync(Arg.Any<User>()).Returns(true);
 
@@ -194,7 +194,6 @@ namespace Minimal.Api.Tests
 
             // Act.
             var result = await client.PostAsync("User", content);
-            var reus = await result.Content.ReadAsStringAsync();
 
             var resultUser = await result.Content.ReadFromJsonAsync<User>();
 
